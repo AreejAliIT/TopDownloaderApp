@@ -1,8 +1,11 @@
 package com.example.topdownloaderapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -103,5 +106,26 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+    //MENU
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        super.onCreateOptionsMenu(menu)
+        menuInflater.inflate(R.menu.main_menu , menu)
+        return true
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.top10 -> {
+                val intent = Intent(this , MainActivity::class.java)
+                startActivity(intent)
+                return true
+            }
+            R.id.top100 -> {
+                val intent = Intent(this , MainActivity::class.java)
+                startActivity(intent)
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
